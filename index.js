@@ -1,6 +1,6 @@
 const express = require("express");
 require("dotenv").config();
-// const routes = require("./routes");
+const routes = require("./routes");
 var cors = require("cors");
 const { dbConnection } = require("./database");
 
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 });
 
 // habilitando el routing
-// app.use("/", routes());
+app.use("/", routes());
 
 // seteo del puerto
 const port = process.env.PORT || "0.0.0.0";
