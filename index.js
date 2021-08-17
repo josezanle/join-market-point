@@ -7,28 +7,21 @@ const { dbConnection } = require("./database");
 // init
 const app = express();
 
-app.use(cors());
-
 // base de datos
 dbConnection();
 
+app.use(cors());
+
 // parseo de data
-
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// inicio de la REST
-app.get("/", (req, res) => {
-  res.send("Hola desde el inicio");
-});
 
 // habilitando el routing
 app.use("/", routes());
 
 // seteo del puerto
-const port = process.env.PORT || "0.0.0.0";
+const port = process.env.PORT || 4000;
 
-// listen del server
+// Lanzamos el server, indicamos el puerto, y un mensje por consola para ver que esta Online.
 app.listen(port, () => {
-  console.log(`Server corriendo en el puerto ${port}`);
+  console.log(`🚀 Server is Running in port: ${port}`);
 });
