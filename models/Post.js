@@ -13,6 +13,10 @@ const postSchema = new Schema({
     type: String,
     require: true,
   },
+  favorite: {
+    type: Boolean,
+    default: false
+  }
 });
 
 module.exports = mongoose.model("Post", postSchema);
